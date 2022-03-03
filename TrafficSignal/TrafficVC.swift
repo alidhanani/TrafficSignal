@@ -23,27 +23,27 @@ class TrafficVC: UIViewController {
     
     let redView: UIView = {
         let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: 50, height: 100)
+        view.frame = CGRect(x: 0, y: 0, width: 50, height: 95)
         view.backgroundColor = UIColor.BrightColor.red
-        view.layer.cornerRadius = view.frame.size.width/2.0
+        view.layer.cornerRadius = view.frame.size.height/2.0
         view.clipsToBounds = true
         return view
     }()
     
     let yellowView: UIView = {
         let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: 50, height: 100)
+        view.frame = CGRect(x: 0, y: 0, width: 50, height: 95)
         view.backgroundColor = UIColor.DimColor.yellow
-        view.layer.cornerRadius = view.frame.size.width/2.0
+        view.layer.cornerRadius = view.frame.size.height/2.0
         view.clipsToBounds = true
         return view
     }()
     
     let greenView: UIView = {
         let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        view.frame = CGRect(x: 0, y: 0, width: 50, height: 95)
         view.backgroundColor = UIColor.DimColor.green
-        view.layer.cornerRadius = view.frame.size.width/2.0
+        view.layer.cornerRadius = view.frame.size.height/2.0
         view.clipsToBounds = true
         return view
     }()
@@ -72,8 +72,6 @@ class TrafficVC: UIViewController {
                 self.redView.backgroundColor = UIColor.BrightColor.red
                 self.yellowView.backgroundColor = UIColor.DimColor.yellow
                 self.greenView.backgroundColor = UIColor.DimColor.green
-                break
-            default:
                 break
             }
             
