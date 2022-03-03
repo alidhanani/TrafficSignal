@@ -18,6 +18,7 @@
 		8CD646CA27D1512A001A007E /* TrafficVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD646C927D1512A001A007E /* TrafficVC.swift */; };
 		8CD646CC27D179F4001A007E /* UIColor+DimColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD646CB27D179F4001A007E /* UIColor+DimColor.swift */; };
 		8CD646CE27D17A45001A007E /* UIColor+BrightColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD646CD27D17A45001A007E /* UIColor+BrightColor.swift */; };
+		8CD646D027D17D27001A007E /* TrafficState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD646CF27D17D27001A007E /* TrafficState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		8CD646C927D1512A001A007E /* TrafficVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficVC.swift; sourceTree = "<group>"; };
 		8CD646CB27D179F4001A007E /* UIColor+DimColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+DimColor.swift"; sourceTree = "<group>"; };
 		8CD646CD27D17A45001A007E /* UIColor+BrightColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+BrightColor.swift"; sourceTree = "<group>"; };
+		8CD646CF27D17D27001A007E /* TrafficState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				8CD646C927D1512A001A007E /* TrafficVC.swift */,
 				8CD646CB27D179F4001A007E /* UIColor+DimColor.swift */,
 				8CD646CD27D17A45001A007E /* UIColor+BrightColor.swift */,
+				8CD646CF27D17D27001A007E /* TrafficState.swift */,
 			);
 			path = TrafficSignal;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				8CD6469A27D147D5001A007E /* AppDelegate.swift in Sources */,
 				8CD646CC27D179F4001A007E /* UIColor+DimColor.swift in Sources */,
 				8CD646CA27D1512A001A007E /* TrafficVC.swift in Sources */,
+				8CD646D027D17D27001A007E /* TrafficState.swift in Sources */,
 				8CD6469C27D147D5001A007E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

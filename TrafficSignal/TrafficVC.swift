@@ -7,12 +7,9 @@
 
 import UIKit
 
-enum ColorDim {
-    case red
-
-}
-
 class TrafficVC: UIViewController {
+    
+    var currentState: TrafficState = .red
     
     // Black Frame that has the Line on it
     let stackVerticalBoard: UIStackView = {
@@ -55,8 +52,31 @@ class TrafficVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         positionDesign()
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (_) in
-
+        Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { (time) in
+            switch self.currentState {
+            case .red:
+                self.currentState = .yellow
+                time.fireDate.addTimeInterval(1)
+                self.redView.backgroundColor = UIColor.DimColor.red
+                self.yellowView.backgroundColor = UIColor.BrightColor.yellow
+                self.greenView.backgroundColor = UIColor.DimColor.green
+                break
+            case .yellow:
+                self.currentState = .green
+                self.redView.backgroundColor = UIColor.DimColor.red
+                self.yellowView.backgroundColor = UIColor.DimColor.yellow
+                self.greenView.backgroundColor = UIColor.BrightColor.green
+                break
+            case .green:
+                self.currentState = .red
+                self.redView.backgroundColor = UIColor.BrightColor.red
+                self.yellowView.backgroundColor = UIColor.DimColor.yellow
+                self.greenView.backgroundColor = UIColor.DimColor.green
+                break
+            default:
+                break
+            }
+            
         }
     }
     
