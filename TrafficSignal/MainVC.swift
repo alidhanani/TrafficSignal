@@ -19,20 +19,28 @@ class MainVC: UIViewController {
         let btn = UIButton(type: .system)
         btn.frame = CGRect(x: 0, y: 0, width: 121, height: 121)
         btn.backgroundColor = .white
-        btn.setTitle("Ready", for: .normal)
-        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 40)
+        btn.setTitle("Start Driving", for: .normal)
+        btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
+        btn.addTarget(self, action: #selector(boardBtnTapAction), for: .touchUpInside)
         return btn
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        self.navigationController?.isNavigationBarHidden = false
         positionDesign() // Desiging the Layout
         // Do any additional setup after loading the view.
     }
     
+    @objc func boardBtnTapAction(_ sender: UIButton)
+    {
+        self.navigationController?.pushViewController(TrafficVC(), animated: true)
+    }
+    
     func positionDesign() {
-        
+//        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 44))
+//        self.view.addSubview(navBar)
         // Adding the Label and Image to the parent view
         self.view.addSubview(txtModel)
         self.view.addSubview(btnReady)
@@ -45,27 +53,24 @@ class MainVC: UIViewController {
         txtModel.translatesAutoresizingMaskIntoConstraints = false
         btnReady.translatesAutoresizingMaskIntoConstraints = false
         
+//        let navItem = UINavigationItem(title: "SomeTitle")
+//
+//        navBar.setItems([navItem], animated: false)
+        
         AnchorForTextField()
         AnchorForBtnReady()
     }
 
     
     func  AnchorForTextField() {
-        //label title
-        txtModel.heightAnchor.constraint(equalToConstant: 20).isActive = true // height 20
-        txtModel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5).isActive = true // making distance of 5 from the left screen
-        txtModel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true // making distance of 5 from the right screen
-        txtModel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true // making it screen center by x axis
-        txtModel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100).isActive = true // having adistance of 8 from the imageView
+        txtModel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true // Screen Center
+        txtModel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true // Screen center from y access with 0 meaning moving a little to the top
     }
     
     func  AnchorForBtnReady() {
-        //label title
-        btnReady.heightAnchor.constraint(equalToConstant: 20).isActive = true // height 20
-        btnReady.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5).isActive = true // making distance of 5 from the left screen
-        btnReady.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5).isActive = true // making distance of 5 from the right screen
-        btnReady.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true // making it screen center by x axis
-        btnReady.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100).isActive = true // having adistance of 8 from the imageView
+        
+        btnReady.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true // Screen Center
+        btnReady.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true // Screen
     }
 
 
