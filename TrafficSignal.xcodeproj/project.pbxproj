@@ -16,6 +16,8 @@
 		8CD646BB27D147D7001A007E /* TrafficSignalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD646BA27D147D7001A007E /* TrafficSignalUITests.swift */; };
 		8CD646BD27D147D7001A007E /* TrafficSignalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD646BC27D147D7001A007E /* TrafficSignalUITestsLaunchTests.swift */; };
 		8CD646CA27D1512A001A007E /* TrafficVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD646C927D1512A001A007E /* TrafficVC.swift */; };
+		8CD646CC27D179F4001A007E /* UIColor+DimColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD646CB27D179F4001A007E /* UIColor+DimColor.swift */; };
+		8CD646CE27D17A45001A007E /* UIColor+BrightColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD646CD27D17A45001A007E /* UIColor+BrightColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		8CD646BA27D147D7001A007E /* TrafficSignalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficSignalUITests.swift; sourceTree = "<group>"; };
 		8CD646BC27D147D7001A007E /* TrafficSignalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficSignalUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		8CD646C927D1512A001A007E /* TrafficVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficVC.swift; sourceTree = "<group>"; };
+		8CD646CB27D179F4001A007E /* UIColor+DimColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+DimColor.swift"; sourceTree = "<group>"; };
+		8CD646CD27D17A45001A007E /* UIColor+BrightColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+BrightColor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				8CD646A427D147D7001A007E /* LaunchScreen.storyboard */,
 				8CD646A727D147D7001A007E /* Info.plist */,
 				8CD646C927D1512A001A007E /* TrafficVC.swift */,
+				8CD646CB27D179F4001A007E /* UIColor+DimColor.swift */,
+				8CD646CD27D17A45001A007E /* UIColor+BrightColor.swift */,
 			);
 			path = TrafficSignal;
 			sourceTree = "<group>";
@@ -258,7 +264,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CD6469E27D147D5001A007E /* MainVC.swift in Sources */,
+				8CD646CE27D17A45001A007E /* UIColor+BrightColor.swift in Sources */,
 				8CD6469A27D147D5001A007E /* AppDelegate.swift in Sources */,
+				8CD646CC27D179F4001A007E /* UIColor+DimColor.swift in Sources */,
 				8CD646CA27D1512A001A007E /* TrafficVC.swift in Sources */,
 				8CD6469C27D147D5001A007E /* SceneDelegate.swift in Sources */,
 			);

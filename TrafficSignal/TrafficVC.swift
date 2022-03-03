@@ -7,6 +7,11 @@
 
 import UIKit
 
+enum ColorDim {
+    case red
+
+}
+
 class TrafficVC: UIViewController {
     
     // Black Frame that has the Line on it
@@ -22,7 +27,7 @@ class TrafficVC: UIViewController {
     let redView: UIView = {
         let view = UIView()
         view.frame = CGRect(x: 0, y: 0, width: 50, height: 100)
-        view.backgroundColor = .red
+        view.backgroundColor = UIColor.BrightColor.red
         view.layer.cornerRadius = view.frame.size.width/2.0
         view.clipsToBounds = true
         return view
@@ -31,7 +36,7 @@ class TrafficVC: UIViewController {
     let yellowView: UIView = {
         let view = UIView()
         view.frame = CGRect(x: 0, y: 0, width: 50, height: 100)
-        view.backgroundColor = .yellow
+        view.backgroundColor = UIColor.DimColor.yellow
         view.layer.cornerRadius = view.frame.size.width/2.0
         view.clipsToBounds = true
         return view
@@ -40,7 +45,7 @@ class TrafficVC: UIViewController {
     let greenView: UIView = {
         let view = UIView()
         view.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        view.backgroundColor = .green
+        view.backgroundColor = UIColor.DimColor.green
         view.layer.cornerRadius = view.frame.size.width/2.0
         view.clipsToBounds = true
         return view
