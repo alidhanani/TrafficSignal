@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  TrafficSignal
 //
-//  Created by NextAuth on 03/03/2022.
+//  Created by Ali Dhanani on 03/03/2022.
 //
 
 import UIKit

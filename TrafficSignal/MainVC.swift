@@ -1,17 +1,18 @@
 //
-//  ViewController.swift
+//  MainVC.swift
 //  TrafficSignal
 //
-//  Created by NextAuth on 03/03/2022.
+//  Created by Ali Dhanani on 03/03/2022.
 //
 
 import UIKit
 
-class MainVC: UIViewController {
+class MainVC: UIViewController{
     
     let txtModel: UITextField = {
         let txt = UITextField()
         txt.placeholder = "Enter Model Number"
+        txt.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         return txt
     }()
     
@@ -19,6 +20,7 @@ class MainVC: UIViewController {
         let btn = UIButton(type: .system)
         btn.frame = CGRect(x: 0, y: 0, width: 121, height: 121)
         btn.backgroundColor = .white
+        btn.isHidden = true
         btn.setTitle("Start Driving", for: .normal)
         btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
         btn.addTarget(self, action: #selector(boardBtnTapAction), for: .touchUpInside)
@@ -28,20 +30,18 @@ class MainVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        self.navigationController?.isNavigationBarHidden = false
+        self.title = "Traffic Signal"
         positionDesign() // Desiging the Layout
-        // Do any additional setup after loading the view.
     }
     
     @objc func boardBtnTapAction(_ sender: UIButton)
     {
-        self.navigationController?.pushViewController(TrafficVC(), animated: true)
+        let trafficVC = TrafficVC()
+        trafficVC.headerTitle = txtModel.text
+        self.navigationController?.pushViewController(trafficVC, animated: true)
     }
     
     func positionDesign() {
-//        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 44))
-//        self.view.addSubview(navBar)
-        // Adding the Label and Image to the parent view
         self.view.addSubview(txtModel)
         self.view.addSubview(btnReady)
         
@@ -52,10 +52,6 @@ class MainVC: UIViewController {
 //        // enable auto layout
         txtModel.translatesAutoresizingMaskIntoConstraints = false
         btnReady.translatesAutoresizingMaskIntoConstraints = false
-        
-//        let navItem = UINavigationItem(title: "SomeTitle")
-//
-//        navBar.setItems([navItem], animated: false)
         
         AnchorForTextField()
         AnchorForBtnReady()
@@ -73,6 +69,14 @@ class MainVC: UIViewController {
         btnReady.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true // Screen
     }
 
-
 }
 
+extension MainVC: UITextFieldDelegate  {
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if textField.text! == "" {
+            btnReady.isHidden = true
+        } else {
+            btnReady.isHidden = false
+        }
+    }
+}

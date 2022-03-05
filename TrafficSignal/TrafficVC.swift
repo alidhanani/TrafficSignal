@@ -2,7 +2,7 @@
 //  TrafficVC.swift
 //  TrafficSignal
 //
-//  Created by NextAuth on 03/03/2022.
+//  Created by Ali Dhanani on 03/03/2022.
 //
 
 import UIKit
@@ -10,6 +10,7 @@ import UIKit
 class TrafficVC: UIViewController {
     
     var currentState: TrafficState = .red
+    var headerTitle: String?
     
     // Black Frame that has the Line on it
     let stackVerticalBoard: UIStackView = {
@@ -52,26 +53,31 @@ class TrafficVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         positionDesign()
+        self.title = headerTitle
+        timeScheduleOnTrafficLightBy(Red: self.redView, Yellow: self.yellowView, Green: self.greenView)
+    }
+    
+    func timeScheduleOnTrafficLightBy(Red red: UIView, Yellow yellow: UIView, Green green:UIView) {
         Timer.scheduledTimer(withTimeInterval: 4, repeats: true) { (time) in
             switch self.currentState {
             case .red:
                 self.currentState = .yellow
                 time.fireDate.addTimeInterval(1)
-                self.redView.backgroundColor = UIColor.DimColor.red
-                self.yellowView.backgroundColor = UIColor.BrightColor.yellow
-                self.greenView.backgroundColor = UIColor.DimColor.green
+                red.backgroundColor = UIColor.DimColor.red
+                yellow.backgroundColor = UIColor.BrightColor.yellow
+                green.backgroundColor = UIColor.DimColor.green
                 break
             case .yellow:
                 self.currentState = .green
-                self.redView.backgroundColor = UIColor.DimColor.red
-                self.yellowView.backgroundColor = UIColor.DimColor.yellow
-                self.greenView.backgroundColor = UIColor.BrightColor.green
+                red.backgroundColor = UIColor.DimColor.red
+                yellow.backgroundColor = UIColor.DimColor.yellow
+                green.backgroundColor = UIColor.BrightColor.green
                 break
             case .green:
                 self.currentState = .red
-                self.redView.backgroundColor = UIColor.BrightColor.red
-                self.yellowView.backgroundColor = UIColor.DimColor.yellow
-                self.greenView.backgroundColor = UIColor.DimColor.green
+                red.backgroundColor = UIColor.BrightColor.red
+                yellow.backgroundColor = UIColor.DimColor.yellow
+                green.backgroundColor = UIColor.DimColor.green
                 break
             }
             
@@ -101,8 +107,8 @@ class TrafficVC: UIViewController {
 
     func AnchorForStackView() {
         // Vertical StackView
-        stackVerticalBoard.heightAnchor.constraint(equalToConstant: 300).isActive = true // height 400
-        stackVerticalBoard.widthAnchor.constraint(equalToConstant: 100).isActive = true // Width 300
+        stackVerticalBoard.heightAnchor.constraint(equalToConstant: 300).isActive = true // height 300
+        stackVerticalBoard.widthAnchor.constraint(equalToConstant: 100).isActive = true // Width 100
         stackVerticalBoard.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true // Screen Center
         stackVerticalBoard.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0).isActive = true // Screen center from y access with 0 meaning moving a little to the top
     }
