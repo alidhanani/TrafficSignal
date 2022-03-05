@@ -9,7 +9,7 @@ import UIKit
 
 class TrafficVC: UIViewController {
     
-    var currentState: TrafficState = .red
+    var currentState: TrafficState?
     var headerTitle: String?
     
     // Black Frame that has the Line on it
@@ -22,31 +22,17 @@ class TrafficVC: UIViewController {
         return stackView
     }()
     
-    let redView: UIView = {
-        let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: 50, height: 95)
-        view.backgroundColor = UIColor.BrightColor.red
-        view.layer.cornerRadius = view.frame.size.height/2.0
-        view.clipsToBounds = true
-        return view
-    }()
-    
-    let yellowView: UIView = {
-        let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: 50, height: 95)
-        view.backgroundColor = UIColor.DimColor.yellow
-        view.layer.cornerRadius = view.frame.size.height/2.0
-        view.clipsToBounds = true
-        return view
-    }()
-    
-    let greenView: UIView = {
-        let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: 50, height: 95)
-        view.backgroundColor = UIColor.DimColor.green
-        view.layer.cornerRadius = view.frame.size.height/2.0
-        view.clipsToBounds = true
-        return view
+    let signalView: [UIView] = {
+        var views: [UIView] = []
+        for i in 0..<3 {
+            let view = UIView()
+            view.frame = CGRect(x: 0, y: 0, width: 50, height: 95)
+            view.backgroundColor = UIColor.BrightColor.red
+            view.layer.cornerRadius = view.frame.size.height/2.0
+            view.clipsToBounds = true
+            views.append(view)
+        }
+        return views
     }()
 
     override func viewDidLoad() {
@@ -54,7 +40,15 @@ class TrafficVC: UIViewController {
         view.backgroundColor = .white
         positionDesign()
         self.title = headerTitle
-        timeScheduleOnTrafficLightBy(Red: self.redView, Yellow: self.yellowView, Green: self.greenView)
+        initalSignalBy(Red: self.signalView[0], Yellow: self.signalView[1], Green: self.signalView[2])
+        timeScheduleOnTrafficLightBy(Red: self.signalView[0], Yellow: self.signalView[1], Green: self.signalView[2])
+    }
+    
+    func initalSignalBy(Red red: UIView, Yellow yellow: UIView, Green green:UIView) {
+        currentState = .red
+        red.backgroundColor = UIColor.BrightColor.red
+        yellow.backgroundColor = UIColor.DimColor.yellow
+        green.backgroundColor = UIColor.DimColor.green
     }
     
     func timeScheduleOnTrafficLightBy(Red red: UIView, Yellow yellow: UIView, Green green:UIView) {
@@ -79,27 +73,28 @@ class TrafficVC: UIViewController {
                 yellow.backgroundColor = UIColor.DimColor.yellow
                 green.backgroundColor = UIColor.DimColor.green
                 break
+            case .none:
+                break
             }
             
         }
     }
     
     func positionDesign() {
-        self.view.addSubview(greenView)
-        self.view.addSubview(yellowView)
-        self.view.addSubview(redView)
+        for signal in signalView {
+            self.view.addSubview(signal)
+        }
         self.view.addSubview(stackVerticalBoard)
         
         stackVerticalBoard.center = self.view.center
-        
         stackVerticalBoard.translatesAutoresizingMaskIntoConstraints = false
-        redView.translatesAutoresizingMaskIntoConstraints = false
-        yellowView.translatesAutoresizingMaskIntoConstraints = false
-        greenView.translatesAutoresizingMaskIntoConstraints = false
+        for signal in signalView {
+            signal.translatesAutoresizingMaskIntoConstraints = false
+        }
         
-        stackVerticalBoard.addArrangedSubview(redView)
-        stackVerticalBoard.addArrangedSubview(yellowView)
-        stackVerticalBoard.addArrangedSubview(greenView)
+        for signal in signalView {
+            stackVerticalBoard.addArrangedSubview(signal)
+        }
         
         AnchorForStackView()
     }
